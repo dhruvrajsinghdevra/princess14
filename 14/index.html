@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Princess Day, Lavanya!</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #ffb6e6;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+
+            /* HEARTS BACKGROUND */
+            background-image:
+                radial-gradient(circle at 20% 20%, rgba(255,255,255,0.6) 0, transparent 40%),
+                radial-gradient(circle at 80% 30%, rgba(255,255,255,0.5) 0, transparent 40%),
+                radial-gradient(circle at 30% 80%, rgba(255,255,255,0.5) 0, transparent 40%),
+                url("data:image/svg+xml;utf8,<svg width='200' height='200' xmlns='http://www.w3.org/2000/svg'><text x='50' y='100' font-size='60' fill='rgba(255,255,255,0.3)'>&#10084;</text></svg>");
+            background-size: cover, cover, cover, 200px 200px;
+            background-repeat: repeat;
+        }
+
+        .card {
+            text-align: center;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(255, 105, 180, 0.4);
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        h1 {
+            color: #d40086;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #5c005c;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        /* 🔴 Custom Music Button */
+        #musicBtn {
+            background: #ff69b4;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            font-size: 1.2em;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 0 10px rgba(255, 20, 147, 0.4);
+        }
+
+        #musicBtn:hover {
+            background: hotpink;
+            transform: scale(1.1);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="card">
+        <h1>👑 Happy Princess Day, Lavanya! 👑</h1>
+        <p>You bring sparkle and joy everywhere you go ✨💖</p>
+
+        <button id="musicBtn">🎵 Play Music</button>
+
+        <audio id="princessSong">
+            <source src="song.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <script>
+        const button = document.getElementById("musicBtn");
+        const audio = document.getElementById("princessSong");
+        let isPlaying = false;
+
+        button.addEventListener("click", () => {
+            if (!isPlaying) {
+                audio.play();
+                button.textContent = "⏸️ Pause Music";
+                isPlaying = true;
+            } else {
+                audio.pause();
+                button.textContent = "🎵 Play Music";
+                isPlaying = false;
+            }
+        });
+    </script>
+
+</body>
+</html>
